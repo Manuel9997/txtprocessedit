@@ -142,3 +142,11 @@ body {
 #Procesar:hover {
   background-color: rgb(143, 143, 143);
 }
+
+.Nombretxt {
+  font-size: 1.8rem;
+}
+
+.Nombretxtc {
+  font-size: 1.5rem;
+}
