@@ -18,6 +18,23 @@ function App() {
   );
 }
 
+function subirArchivo(text) {
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const raw = JSON.stringify({
+    content: text,
+  });
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+  };
+  fetch("http://localhost:8000/upload-file", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+}
+
 function Inputshow() {
   const [file, setFile] = useState(null);
   const [filecontent, setFileContent] = useState("");
@@ -42,20 +59,16 @@ function Inputshow() {
         <div className="show">
           <p className="Nombretxt">El nombre del archivo es "{file.name}"</p>
           <p className="Nombretxtc">El contenido es:</p>
-          <p className="Contenido" onClick={(e) => editFile(e)}>
-            {filecontent}
-          </p>
+          <textarea
+            value={filecontent}
+            className="txtArea"
+            onChange={(e) => setFileContent(e.target.value)}
+          ></textarea>
+          <button onClick={() => subirArchivo(filecontent)}>Enviar</button>;
         </div>
       )}
     </div>
   );
 }
-
-const editFile = (e) => {
-  const [file, setFile] = useState[""];
-  const [fileeditado, setFileeditado] = useState[false];
-  const valores = e.target.value;
-  setFile(valores);
-};
 
 export default App;

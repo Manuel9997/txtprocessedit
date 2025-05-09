@@ -119,16 +119,6 @@ body {
   font-size: 2rem;
 }
 
-.show {
-  width: 99%;
-  height: 100%;
-  border-color: rgb(9, 121, 218);
-  border-radius: 2px;
-  border-style: solid;
-  border-bottom-width: 10px;
-  margin-top: 1.2rem;
-}
-
 .Procesar {
   margin-top: 2rem;
   width: 10rem;
@@ -144,9 +134,24 @@ body {
 }
 
 .Nombretxt {
-  font-size: 1.8rem;
+  font-size: 1rem;
 }
 
 .Nombretxtc {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.txtArea {
+  width: 40rem;
+  height: 20rem;
+  border-color: rgb(9, 121, 218);
+  border-radius: 2px;
+  border-style: solid;
+  border-bottom-width: 10px;
+  margin-top: 1.2rem;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
 }

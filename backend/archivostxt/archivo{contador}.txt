@@ -1,0 +1,320 @@
+el codigo para ir por carpetas es 
+"cd"
+
+cd /c "se usa para ir al disco c"
+cd users "se usar para ir a la carpeta de usuarios"
+
+// y asi consecutivamente
+
+pero si deseas backear simplemente debes colocar los guiones
+
+cd -- (esto es para retroceder todo)
+
+cd - (esto para retroceder uno por uno)
+
+//Términos que usaremos:
+
+commit: es como la versión de un archivo
+
+
+---------------------------
+Command to add a new file:
+
+mkdir "name of the file"
+------------------------
+command to see were we stay:
+ pwd
+--------------------
+
+
+touch "here put the name of your file"
+
+command to add new files
+
+----------------------------
+
+
+rm "here put the name of your file"
+
+command to remove new files
+
+
+-----------------------
+
+code "here put the name of your file"
+
+command to code en visual studio code
+
+
+-----------------------
+
+git remote -v  (ver cuantos orígenes tienes)
+
+
+-------------------
+
+
+git config -l
+("Es el comando que se usa para poder ver todos los datos que tien git")
+
+
+------------------------
+git status
+
+git log (seguido de tu archivo)-
+//te muestra todas las versiones que tienes añadido a la persona que lo cambio
+es indispensable que coloques el archivo completo, ejempo:
+git log oe.txt
+
+git add .
+(sirve para guardar los cambios)
+
+// unax variante de git add es (git add (seguido del doc)) para poder añadir solo ese doc en especifico
+
+git rm
+(sirve para remover antes de asignar el commit con el comentario)
+a eso lo llamamos staggit bro
+
+git commit -m "nombre"
+(sirve para colocarle el nombre al commit)
+
+git history "seguido de tu archivo"
+"Mostrará los cambios que se han dado en el doc"
+
+git diff "sirve para ver los cambios que se han realizado"
+
+//ejemplos de uso: $ git diff ccaa912e179b79ae75c797ca184f8ec30d19762c f0645deee87abd560319e73dc6d7ee8c983c1efc
+(Nota que se están comparando dos commits)
+
+
+// stagging vendria a ser algo asi como el espacio temporal donde esta un documento antes de asignarle un commit 
+
+
+
+
+// En git se puede hacer diversas versiones de versiones basicamente es algo que se hace para poder corregir ciertos bugs, experimentar con cosas etc
+
+branch (rama), se pueden crear diversas ramas viejo
+
+estructura:
+
+---------------------------------------------
+
+Master: v1 v2 v3 v4 v5 v6 vactual
+
+Experimento: v2.1, v2.2, v2.3
+
+arreglo de bugs: vactual 1.1, vactual 1.2
+
+--------------------------------------------------
+
+git reset (Seguido del commit) --hard
+// Lo que hará es básicamente volver en el tiempo para poder tener todos los cambios de ese commit ejemplo práctico:
+
+$ git reset ccaa912e179b79ae75c797ca184f8ec30d19762c --hard
+
+
+------------------
+El comando llamado git log --stat
+//sirve para que tu básicamente te des cuenta de todo lo que ha cambaido en un commit
+
+---------------
+////
+como cambiar el nombre de un commit:
+git rebase -i HEAD~n
+
+(donde n es el número de commits que deseas retroceder desde la base)
+//
+
+luego de eso cambias pick por edit posteriormente a ello lo que haremos es cerar y guardar esa pantalla y dirigirnos al editor de git nuevamente
+
+git commit --amend -m ""
+
+
+git rebase --abort 
+//comando para salir de rebase
+---------------
+
+git init
+
+"You use this command to create a git repository in your file"
+
+----------------------
+
+git branch "seguido del nombre de la rama que deseas crear"
+
+//este comando te servira para que puedas crear una nueva rama
+con 
+
+
+
+--------------------
+
+git checkout "seguido de la rama sin comillas"
+
+// sirve para que te muevas entre ramas 
+
+---------------------
+
+git show 
+
+"Sirve para que veas los cambios "
+
+
+-------------------
+
+git branch -a
+
+//Sirve para que veas todas las ramas que tienes actualmente
+
+
+---------------------
+
+
+git branch -d nombre_de_la_rama
+
+//Sirve para eliminar ramas
+
+
+
+-----------------------
+git commit -a -m "seguido del texto"
+
+//Sirve para que agreges lo que esta en el cache y a su vez que coloques el nombre del commit
+
+
+//Important if u need delete a directory "file" you need to use this command:
+
+
+rm -r "Follower of the name of the  file"
+
+
+------------
+Para fusionar dos archivos:
+//very important to do this process you need stay in the brach master or the principal branch
+
+git merge "seguido de la rama secundaria"
+
+-----------------------------
+
+Generar una nueva llave SSH: (Cualquier sistema operativo)
+
+ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
+
+Comprobar proceso y agregarlo (Windows)
+
+eval $(ssh-agent - s)
+
+ssh-add ~/.ssh/id_rsa (para añadir la llave privada)
+
+
+------------------------------
+
+git remote add origin "seguido de la ruta sshh"
+//Este comando sirve para que tu puedas añadir la ruta de origen
+necesitas estar en la carpeta donde estan todos tus archivos git y tambien copiar la
+ruta sshh de tu mismo repositorio de git
+
+
+--------------------------
+
+git branch -m main
+//Esto sirve para migrar tus cambios a la rama main desde tu master
+
+	
+
+-------------------------------------
+git push origin "nombre de la rama" (este comando es el que se usa para poder hacer push)
+
+
+git pull origin "nombrede la rama" (esto sirve para jalar todos los cambios del repositorio)
+
+
+----------------------
+
+git log --all --graph --decorate --oneline
+
+(sirve para que tu puedas ver la historia de las ramas y como se han comportado con el 
+tiempo)
+
+"mostrar"
+
+------------
+MUY IMPORTANTE, USO DE LOS SHORTCURTS:
+alias "nombre del shortcurt sin comillas"="aca colocas la ruta, recuerda que debes usar las comillas
+solamente en esta parte del codigo"
+
+
+
+---------------------------------
+rutas para avanzar más rápido:
+cd ~git14.11
+
+--------------------------------
+
+git tag -a "nombre de tu version" -m "nombre del comentario en comillas" "aca va el commit sin comillas"
+
+
+
+git push origin --tags
+
+(Esto es sumamente indispensable para que puedas pushear todos tus tags)
+
+git tag -d "nombre del tag sin comillas"cd 
+
+(sirve para eliminar tags ojo solo de tu repositorio local)
+
+
+(sirve para eliminar tags del repositorio de github)
+
+git push origin :refs/tags/q(aca colocas el nombre del tag pendiente a eliminar)
+
+
+---------------------
+
+
+Este es el comando para añadir una nueva rama a tu repositorio de git:
+
+git push origin "nombre de la rama sin comillas solo separado con un espacio"
+
+----------------
+
+gitk (this command is very important to show you how is the history of your commits)
+
+-----------------
+
+".gitignore"
+
+"puedes crear este archivo en tu visual studio code y alli añadir que archivos deseas que git ignore
+y que por lo tanto no se muestren "
+
+
+--------------------------
+Use this command to clone the repository of other persons or enterprises
+git clone "seguido de la ruta"
+
+--------------
+
+
+git show
+// sirve basicamente para que puedas ver los ultimos cambios que se han realizado
+
+cd /c/users/manue/OneDrive/Escritorio/js/Proyectos/28.12
+
+
+-------------
+
+
+
+
+
+------------------------------------
+COMENTARIOS:
+
+-Los archivos tipo imagenes o otros que no sean para codear en vsc normalmente se tienen que
+añadir got el comando "git add ." (Tomarlo muy en cuenta al momento de crear nuevos commits)
+
+-----------------------------
+
+
+
