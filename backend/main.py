@@ -4,6 +4,8 @@ from schemas.text_file import TextFile
 
 app = FastAPI()
 
+CONTADOR= 0
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -12,8 +14,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
 @app.post('/upload-file')
+
+
 def obtener(body:TextFile):
-    print(body.content)
-    with open('./archivostxt/archivo.txt', 'w', encoding='utf-8') as archivo:
+    global CONTADOR
+    CONTADOR+=1
+    texto= "./archivostxt/archivo"+str(CONTADOR)+".txt"
+    with open(texto, 'w', encoding='utf-8') as archivo:
         archivo.write(body.content)
+
+

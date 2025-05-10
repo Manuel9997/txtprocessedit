@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import MenuBar from "./Menubar";
 
+var CONTADOR = 0;
+
 function App() {
   return (
     <>
@@ -31,7 +33,14 @@ function subirArchivo(text) {
   };
   fetch("http://localhost:8000/upload-file", requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      CONTADOR++;
+      alert(
+        "Documento guardado como archivo" +
+          CONTADOR +
+          " en la carpeta archivostxt"
+      );
+    })
     .catch((error) => console.error(error));
 }
 
@@ -64,7 +73,7 @@ function Inputshow() {
             className="txtArea"
             onChange={(e) => setFileContent(e.target.value)}
           ></textarea>
-          <button onClick={() => subirArchivo(filecontent)}>Enviar</button>;
+          <button onClick={() => subirArchivo(filecontent)}>Enviar</button>
         </div>
       )}
     </div>
